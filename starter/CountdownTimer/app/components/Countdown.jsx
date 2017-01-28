@@ -23,9 +23,11 @@ class Countdown extends React.Component {
 
     tick() {
         this.timer = setInterval(() => {
-            var newCount = this.state.count - 1;
-            this.setState({
-                count: newCount >= 0 ? newCount : 0
+            this.setState(oldState => {
+                const newCount = this.state.count - 1;
+                return {
+                    count: newCount >= 0 ? newCount : 0
+                };
             });
         }, 1000);
     }
